@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechAcademy - Master Modern Tech Skills</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 antialiased selection:bg-indigo-500 selection:text-white">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#" class="text-2xl font-extrabold tracking-tight text-white flex items-center gap-2">
+                <i class="fa-solid fa-code text-indigo-500"></i> Tech<span class="text-indigo-500">Academy</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-300">
+                <a href="#about" class="hover:text-indigo-400 transition">About Us</a>
+                <a href="#courses" class="hover:text-indigo-400 transition">Courses</a>
+                <a href="#testimonials" class="hover:text-indigo-400 transition">Testimonials</a>
+                <a href="#contact" class="hover:text-indigo-400 transition">Contact</a>
+            </nav>
+
+            <button onclick="openEnrollModal('webdev')" class="hidden md:inline-flex bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-5 py-2.5 rounded-lg transition shadow-lg shadow-indigo-600/30">
+                Register Now
+            </button>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none text-2xl">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-800 border-b border-slate-700 px-4 pt-2 pb-6 space-y-3">
+            <a href="#about" class="block text-slate-300 hover:text-indigo-400 py-2">About Us</a>
+            <a href="#courses" class="block text-slate-300 hover:text-indigo-400 py-2">Courses</a>
+            <a href="#testimonials" class="block text-slate-300 hover:text-indigo-400 py-2">Testimonials</a>
+            <a href="#contact" class="block text-slate-300 hover:text-indigo-400 py-2">Contact</a>
+            <button onclick="openEnrollModal('webdev')" class="w-full bg-indigo-600 text-white font-semibold py-2 rounded-lg">Register Now</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-28 overflow-hidden bg-gradient-to-b from-slate-900 via-slate-900 to-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span class="inline-block py-1 px-3 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-sm font-semibold mb-6">
+                🚀 Enrollment Open for Upcoming Batches
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white max-w-4xl mx-auto leading-tight">
+                Accelerate Your Tech Career with Hands-On Learning
+            </h1>
+            <p class="mt-6 text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto">
+                Master Web Development, Generative AI, and Cybersecurity with expert mentorship, real-world projects, and flexible timings.
+            </p>
+            <div class="mt-10 flex flex-wrap justify-center gap-4">
+                <button onclick="openEnrollModal('webdev')" class="bg-indigo-600 hover:bg-indigo-500 text-white font-semibold px-8 py-3.5 rounded-lg text-lg transition shadow-xl shadow-indigo-600/30">
+                    Apply For Next Cohort
+                </button>
+                <a href="#courses" class="bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold px-8 py-3.5 rounded-lg text-lg border border-slate-700 transition">
+                    View All Courses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Why Choose TechAcademy?</h2>
+                <p class="mt-4 text-slate-400 leading-relaxed">
+                    We bridge the gap between academic education and industry standards. Our curriculum is tailored for beginners, career-switchers, and professionals aiming to upgrade their skill sets.
+                </p>
+                
+                <div class="mt-8 space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-indigo-600/20 text-indigo-400 rounded-lg"><i class="fa-solid fa-chalkboard-user text-xl"></i></div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">Live Interactive Classes</h3>
+                            <p class="text-slate-400 text-sm">Real-time engagement with industry veteran mentors.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-indigo-600/20 text-indigo-400 rounded-lg"><i class="fa-solid fa-diagram-project text-xl"></i></div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">Project-Based Learning</h3>
+                            <p class="text-slate-400 text-sm">Build portfolio-worthy projects during the course.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-4">
+                        <div class="p-3 bg-indigo-600/20 text-indigo-400 rounded-lg"><i class="fa-solid fa-briefcase text-xl"></i></div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-white">Career Assistance</h3>
+                            <p class="text-slate-400 text-sm">Resume reviews, interview preparation, and job referrals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 gap-6">
+                <div class="p-6 bg-slate-800/60 border border-slate-700 rounded-2xl text-center">
+                    <span class="block text-4xl font-extrabold text-indigo-400">1,500+</span>
+                    <span class="mt-2 block text-sm text-slate-400 font-medium">Graduated Students</span>
+                </div>
+                <div class="p-6 bg-slate-800/60 border border-slate-700 rounded-2xl text-center">
+                    <span class="block text-4xl font-extrabold text-indigo-400">92%</span>
+                    <span class="mt-2 block text-sm text-slate-400 font-medium">Placement Rate</span>
+                </div>
+                <div class="p-6 bg-slate-800/60 border border-slate-700 rounded-2xl text-center">
+                    <span class="block text-4xl font-extrabold text-indigo-400">20+</span>
+                    <span class="mt-2 block text-sm text-slate-400 font-medium">Expert Instructors</span>
+                </div>
+                <div class="p-6 bg-slate-800/60 border border-slate-700 rounded-2xl text-center">
+                    <span class="block text-4xl font-extrabold text-indigo-400">4.9/5</span>
+                    <span class="mt-2 block text-sm text-slate-400 font-medium">Student Rating</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-20 bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Featured Programs</h2>
+                <p class="mt-4 text-slate-400">Comprehensive bootcamps designed to get you job-ready in months.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Course 1: Full Stack Web Development -->
+                <div class="bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between hover:border-indigo-500/50 transition">
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-blue-500/10 text-blue-400 rounded-xl flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Full Stack Web Development</h3>
+                        <p class="mt-2 text-slate-400 text-sm">HTML, CSS, JavaScript, React, Node.js, Express, and MongoDB.</p>
+                        
+                        <hr class="my-6 border-slate-700">
+                        
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-regular fa-clock text-indigo-400"></i>
+                                <span><strong>Duration:</strong> 4 Months</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-regular fa-calendar-check text-indigo-400"></i>
+                                <span><strong>Timing:</strong> Mon & Wed (7:00 PM - 9:00 PM)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-tag text-indigo-400"></i>
+                                <span><strong>Fee:</strong> 5000 / month (or 30000 total)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-slate-900/50 border-t border-slate-700/50">
+                        <button onclick="openEnrollModal('webdev')" class="block text-center w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-lg transition">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Course 2: Generative AI & Machine Learning -->
+                <div class="bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between hover:border-indigo-500/50 transition">
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-purple-500/10 text-purple-400 rounded-xl flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-robot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Generative AI Engineering</h3>
+                        <p class="mt-2 text-slate-400 text-sm">Python, LLMs, OpenAI API, LangChain, RAG Systems, and Prompt Engineering.</p>
+                        
+                        <hr class="my-6 border-slate-700">
+                        
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-regular fa-clock text-indigo-400"></i>
+                                <span><strong>Duration:</strong> 3 Months</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-regular fa-calendar-check text-indigo-400"></i>
+                                <span><strong>Timing:</strong> Tue & Thu (6:30 PM - 8:30 PM)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-tag text-indigo-400"></i>
+                                <span><strong>Fee:</strong> 5000 / month (or 15000 total)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-slate-900/50 border-t border-slate-700/50">
+                        <button onclick="openEnrollModal('genai')" class="block text-center w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-lg transition">Enroll Now</button>
+                    </div>
+                </div>
+
+                <!-- Course 3: Cybersecurity & Ethical Hacking -->
+                <div class="bg-slate-800 border border-slate-700 rounded-2xl overflow-hidden shadow-xl flex flex-col justify-between hover:border-indigo-500/50 transition">
+                    <div class="p-6">
+                        <div class="w-12 h-12 bg-emerald-500/10 text-emerald-400 rounded-xl flex items-center justify-center text-2xl mb-4">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-white">Cybersecurity & Ethical Hacking</h3>
+                        <p class="mt-2 text-slate-400 text-sm">Network Security, Penetration Testing, Wireshark, Metasploit, and Defense.</p>
+                        
+                        <hr class="my-6 border-slate-700">
+                        
+                        <ul class="space-y-3 text-sm text-slate-300">
+                            <li class="flex items-center gap-3">
+                                <i class="fa-regular fa-clock text-indigo-400"></i>
+                                <span><strong>Duration:</strong> 5 Months</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-regular fa-calendar-check text-indigo-400"></i>
+                                <span><strong>Timing:</strong> Sat & Sun (10:00 AM - 1:00 PM)</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-tag text-indigo-400"></i>
+                                <span><strong>Fee:</strong> 5000 / month (or 15000 total)</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="p-6 bg-slate-900/50 border-t border-slate-700/50">
+                        <button onclick="openEnrollModal('cyber')" class="block text-center w-full bg-indigo-600 hover:bg-indigo-500 text-white font-semibold py-2.5 rounded-lg transition">Enroll Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Student Success Stories</h2>
+                <p class="mt-4 text-slate-400">Here is what our graduates have to say about their learning experience.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-6 bg-slate-800/70 border border-slate-700 rounded-2xl flex flex-col justify-between">
+                    <p class="text-slate-300 italic">"The Full Stack Web Dev course gave me the exact skills I needed to land my first developer job within two months of completion."</p>
+                    <div class="mt-6 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-indigo-600 flex items-center justify-center font-bold text-white">JD</div>
+                        <div>
+                            <h4 class="font-semibold text-white">Saad</h4>
+                            <p class="text-xs text-slate-400">Frontend Developer at Tech Corp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-slate-800/70 border border-slate-700 rounded-2xl flex flex-col justify-between">
+                    <p class="text-slate-300 italic">"Generative AI module was incredible. Building real AI apps with LangChain made all the theoretical concepts super practical."</p>
+                    <div class="mt-6 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-600 flex items-center justify-center font-bold text-white">AS</div>
+                        <div>
+                            <h4 class="font-semibold text-white">Ayesha sheikh</h4>
+                            <p class="text-xs text-slate-400">AI Specialist</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 bg-slate-800/70 border border-slate-700 rounded-2xl flex flex-col justify-between">
+                    <p class="text-slate-300 italic">"Rigorous labs and weekend schedules made it possible for me to switch from IT support into Cybersecurity without quitting my job."</p>
+                    <div class="mt-6 flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-emerald-600 flex items-center justify-center font-bold text-white">MR</div>
+                        <div>
+                            <h4 class="font-semibold text-white">MAHA</h4>
+                            <p class="text-xs text-slate-400">Security Analyst</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-800/50 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info & Instant Connect -->
+                <div>
+                    <h2 class="text-3xl sm:text-4xl font-bold text-white">Get in Touch</h2>
+                    <p class="mt-4 text-slate-400">
+                        Have questions about course schedules, fees, or custom learning tracks? Reach out directly or send us a message.
+                    </p>
+
+                    <div class="mt-8 space-y-4">
+                        <!-- Direct WhatsApp Button -->
+                        <a href="https://wa.me/1234567890?text=Hello%20TechAcademy,%20I%20am%20interested%20in%20your%20courses." target="_blank" 
+                           class="flex items-center justify-center gap-3 w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-6 rounded-xl transition shadow-lg shadow-emerald-600/20">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            Chat with us on WhatsApp
+                        </a>
+
+                        <!-- Direct Email Button -->
+                        <a href="mailto:info@techacademy.com?subject=Course%20Inquiry" 
+                           class="flex items-center justify-center gap-3 w-full bg-slate-700 hover:bg-slate-600 text-white font-bold py-3.5 px-6 rounded-xl transition border border-slate-600">
+                            <i class="fa-regular fa-envelope text-2xl"></i>
+                            Send Direct Email
+                        </a>
+                    </div>
+
+                    <div class="mt-10 space-y-3 text-slate-300 text-sm">
+                        <p class="flex items-center gap-3"><i class="fa-solid fa-location-dot text-indigo-400"></i> 123 Education Way, Tech City, USA</p>
+                        <p class="flex items-center gap-3"><i class="fa-solid fa-phone text-indigo-400"></i> +92 34567889</p>
+                        <p class="flex items-center gap-3"><i class="fa-solid fa-envelope text-indigo-400"></i> ilmamariam@gmail.com</p>
+                    </div>
+                </div>
+
+                <!-- Web Contact Form -->
+                <div class="bg-slate-800 border border-slate-700 p-8 rounded-2xl shadow-xl">
+                    <h3 class="text-xl font-bold text-white mb-6">Send Us a Message</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-1">Full Name</label>
+                            <input type="text" required placeholder="John Doe" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-1">Email Address</label>
+                            <input type="email" required placeholder="john@example.com" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-indigo-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-1">Select Course</label>
+                            <select class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-indigo-500">
+                                <option>Full Stack Web Development</option>
+                                <option>Generative AI Engineering</option>
+                                <option>Cybersecurity & Ethical Hacking</option>
+                                <option>Other / General Inquiry</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-slate-300 mb-1">Message</label>
+                            <textarea rows="4" required placeholder="Tell us about your learning goals..." class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-indigo-500"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-500 text-white font-bold py-3 rounded-lg transition">
+                            Submit Inquiry
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 py-8 border-t border-slate-800 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 TechAcademy. All rights reserved.</p>
+    </footer>
+
+    <!-- INTERACTIVE REGISTRATION & PAYMENT MODAL -->
+    <div id="enroll-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm overflow-y-auto">
+        <div class="relative w-full max-w-2xl bg-slate-900 border border-slate-700 rounded-2xl shadow-2xl overflow-hidden my-8">
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between p-6 border-b border-slate-800 bg-slate-800/50">
+                <div>
+                    <h3 class="text-xl font-bold text-white">Student Course Registration</h3>
+                    <p class="text-xs text-slate-400 mt-0.5">Complete your details to secure your seat</p>
+                </div>
+                <button onclick="closeEnrollModal()" class="text-slate-400 hover:text-white p-2 text-xl focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <form id="modal-enroll-form" onsubmit="handleRegistrationSubmit(event)" class="p-6 space-y-6">
+                <!-- Step 1: Course Selection -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">1. Select Course</label>
+                    <select id="modal-course-select" onchange="updatePaymentPreview()" class="w-full bg-slate-800 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500 font-medium">
+                        <option value="webdev">Full Stack Web Development (4 Months)</option>
+                        <option value="genai">Generative AI Engineering (3 Months)</option>
+                        <option value="cyber">Cybersecurity & Ethical Hacking (5 Months)</option>
+                    </select>
+                </div>
+
+                <!-- Step 2: Payment Plan Switcher -->
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">2. Payment Plan</label>
+                    <div class="grid grid-cols-2 gap-4">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="payment-plan" value="monthly" checked onchange="updatePaymentPreview()" class="peer sr-only">
+                            <div class="p-4 rounded-xl border border-slate-700 bg-slate-800/50 text-center peer-checked:border-indigo-500 peer-checked:bg-indigo-600/10 transition">
+                                <span class="block text-sm font-bold text-white">Monthly Plan</span>
+                                <span class="block text-xs text-slate-400 mt-1">Pay month-by-month</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="payment-plan" value="full" onchange="updatePaymentPreview()" class="peer sr-only">
+                            <div class="p-4 rounded-xl border border-slate-700 bg-slate-800/50 text-center peer-checked:border-indigo-500 peer-checked:bg-indigo-600/10 transition relative">
+                                <span class="absolute -top-2.5 right-3 bg-emerald-500 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase">Save 15%</span>
+                                <span class="block text-sm font-bold text-white">One-Time Full Pay</span>
+                                <span class="block text-xs text-slate-400 mt-1">Upfront single payment</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Dynamic Payment Preview Card -->
+                <div class="bg-indigo-950/40 border border-indigo-500/30 rounded-xl p-4 text-sm space-y-2">
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Selected Schedule:</span>
+                        <span id="preview-schedule" class="font-medium text-slate-200">Mon & Wed (7:00 PM - 9:00 PM)</span>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <span class="text-slate-400">Course Duration:</span>
+                        <span id="preview-duration" class="font-medium text-slate-200">4 Months</span>
+                    </div>
+                    <hr class="border-indigo-500/20 my-2">
+                    <div class="flex justify-between items-center font-bold text-base">
+                        <span class="text-indigo-300">Total Due Today:</span>
+                        <span id="preview-total" class="text-emerald-400 text-xl">$299</span>
+                    </div>
+                </div>
+
+                <!-- Step 3: Student Information -->
+                <div class="space-y-4">
+                    <label class="block text-sm font-medium text-slate-300">3. Student Info</label>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" required placeholder="Full Name" class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-indigo-500 text-sm">
+                        <input type="email" required placeholder="Email Address" class="bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-indigo-500 text-sm">
+                    </div>
+                    <input type="tel" required placeholder="WhatsApp Number (with country code)" class="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-indigo-500 text-sm">
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-lock"></i>
+                    Proceed to Registration
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu & Dynamic Modal Logic -->
+    <script>
+        // Data Store for Courses
+        const courseData = {
+            webdev: {
+                name: "Full Stack Web Development",
+                duration: "4 Months",
+                schedule: "Mon & Wed (7:00 PM - 9:00 PM)",
+                monthlyFee: 299,
+                fullFee: 999
+            },
+            genai: {
+                name: "Generative AI Engineering",
+                duration: "3 Months",
+                schedule: "Tue & Thu (6:30 PM - 8:30 PM)",
+                monthlyFee: 349,
+                fullFee: 950
+            },
+            cyber: {
+                name: "Cybersecurity & Ethical Hacking",
+                duration: "5 Months",
+                schedule: "Sat & Sun (10:00 AM - 1:00 PM)",
+                monthlyFee: 279,
+                fullFee: 1200
+            }
+        };
+
+        const modal = document.getElementById('enroll-modal');
+        const courseSelect = document.getElementById('modal-course-select');
+
+        function openEnrollModal(courseKey) {
+            if (courseKey && courseData[courseKey]) {
+                courseSelect.value = courseKey;
+            }
+            updatePaymentPreview();
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Lock background scroll
+        }
+
+        function closeEnrollModal() {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore background scroll
+        }
+
+        function updatePaymentPreview() {
+            const selectedCourseKey = courseSelect.value;
+            const course = courseData[selectedCourseKey];
+            const plan = document.querySelector('input[name="payment-plan"]:checked').value;
+
+            document.getElementById('preview-schedule').innerText = course.schedule;
+            document.getElementById('preview-duration').innerText = course.duration;
+
+            if (plan === 'monthly') {
+                document.getElementById('preview-total').innerText = `$${course.monthlyFee} / month`;
+            } else {
+                document.getElementById('preview-total').innerText = `$${course.fullFee} Total (Save 15%)`;
+            }
+        }
+
+        function handleRegistrationSubmit(e) {
+            e.preventDefault();
+            alert('🎉 Registration successful! Our admissions team will contact you via WhatsApp shortly to finalize your setup.');
+            closeEnrollModal();
+        }
+
+        // Close Modal when clicking outside the container box
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeEnrollModal();
+        });
+
+        // Mobile Nav Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Contact Form Handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for reaching out! We will contact you shortly.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
